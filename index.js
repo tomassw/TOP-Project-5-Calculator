@@ -14,6 +14,7 @@ const buttons = document.querySelectorAll('button');
 
 /*Event listener pentru cand este apasata o tasta 
 - keydown corespunzator la atribut in html
+- folosesc .click() ca sa actioneze singur butonul
 */
 window.addEventListener('keydown', function(e) {
     const key = document.querySelector(`button[data-key='${e.keyCode}']`);
