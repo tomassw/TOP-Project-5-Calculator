@@ -5,3 +5,8 @@ Needs the following functions: add substract multiply divide
 Needs to work with floats
 
 Should work both by adding the numbers using the buttons and by typing them at the keyboard
+
+
+
+Tasks
+- make brackets work accordingly
