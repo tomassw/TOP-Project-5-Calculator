@@ -51,13 +51,18 @@ for (const button of buttons) {
 
     
       } else if (contor <= 7 && (button.value >= '0' && button.value <= '9' || (button.value == '.' &&  //Continuare primului termen
-      decimal1 == false)) && phase1 == 1 && phase2 == 0) { //2.
+      decimal1 == false)) && phase1 == 1) { //2.
         if (button.value == '0') {
           if (primulOperator == '-0') {
             ;
           }
           if (primulOperator == '0') {
             ;
+          }
+          else {
+            primulOperator += '0';
+            display.innerHTML = primulOperator;
+            contor++;
           }
         } else if (button.value == '.') {
             if (decimal1 != true && primulOperator != '-') {
@@ -74,27 +79,24 @@ for (const button of buttons) {
               contor++;
             }
           }
+          if (primulOperator.charAt(primulOperator.length - 1) != '.') {
+            phase2 = 1;
+          }
       }
     }
     
     //Operator
+ 
     if ((button.value == '-' || button.value == '+' || button.value == '/' || button.value == '*' || button.value == '%') && phase2 == 1) {
-        phase2 = 1;
+        phase1 = 3;
         operatie = button.value;
         display.innerHTML += operatie;
     }
 
     //Al doilea termen
-    if (phase2 == 1 && button.value >= '0' && button.value <= '9' && contor2 == 0) {
-        secondOperator = button.value;
-        display.innerHTML += button.value;
-        contor2++;
-        phase2 = 2;
-    } else if (contor2 <= 7 && phase2 == 2 && button.value >= '0' && button.value <= '9') {
-      secondOperator += button.value;
-      display.innerHTML += button.value;
-      contor2++;
-    }
+   
+
+    //Egal
     if (button.value == '=') {
       display.innerHTML = eval(primulOperator + operatie + secondOperator);
       contor = 0;
@@ -102,7 +104,7 @@ for (const button of buttons) {
       phase1 = 0;
       phase2 = 0;
     }
-    if (button.value == 'clear') {
+    if (button.value == 'clear') { //A/C
       display.innerHTML = '0';
       contor = 0;
       contor2 = 0;
@@ -115,6 +117,7 @@ for (const button of buttons) {
       secondOperator = '0';
 
     }
+    
   }); 
 }
 
