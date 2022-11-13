@@ -38,7 +38,12 @@ for (const button of buttons) {
     //Initializare primul termen
     if (button.classList == 'operand' || button.value == '.' || button.value == '-') { 
       if (phase1 == 0 && contor == 0) { //1. 3 scenarii: incepe cu -, cu 0. sau cu o cifra diferita de 0
-        if (button.value >= '1' && button.value <= '9') primulOperator = button.value;
+        if (button.value >= '1' && button.value <= '9')  {
+          primulOperator = button.value;
+          phase2 = 1;
+        } else if (button.value == '0') {
+          phase2 = 1;
+        }
         else if (button.value == '.') {
           primulOperator += '.';
           decimal1 = true;
@@ -48,7 +53,6 @@ for (const button of buttons) {
         display.innerHTML = primulOperator;
         contor++;
         phase1 = 1;
-
     
       } else if (contor <= 7 && (button.value >= '0' && button.value <= '9' || (button.value == '.' &&  //Continuare primului termen
       decimal1 == false)) && phase1 == 1) { //2.
@@ -127,10 +131,12 @@ for (const button of buttons) {
     //Egal
     if (button.value == '=') {
       display.innerHTML = eval(primulOperator + operatie + secondOperator);
-      contor = 0;
+      primulOperator = display.innerHTML;
+      secondOperator = '0';
+
       contor2 = 0;
-      phase1 = 0;
-      phase2 = 0;
+      phase1 = 3;
+      phase2 = 1;
     }
     if (button.value == 'clear') { //A/C
       display.innerHTML = '0';
@@ -150,36 +156,3 @@ for (const button of buttons) {
 }
 
 
-
-
-
-
-
-
-
-/*
-    if (contor == 0) {
-      if (button.value >='1' && button.value <= '9') {
-        expression = `${button.value}`;
-        contor++;
-        display.innerHTML = expression;
-      }
-      if (button.value =='.') {
-        expression += `${button.value}`;
-        contor += 2;
-        display.innerHTML = expression;
-      }
-      if (button.value == 'sign') {
-        expression = '-';
-        contor++;
-        display.innerHTML = expression;
-      }
-    } else if (button.value == '=') {
-        contor = 0;
-        display.innerHTML = 'rezultat';
-    } else if (button.value == 'clear') {
-        contor = 0;
-        display.innerHTML = '0';
-    } else {
-
-    }*/
