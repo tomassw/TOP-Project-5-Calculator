@@ -94,7 +94,7 @@ for (const button of buttons) {
       }
 
     //Al doilea termen
-    if (phase1 == 3 && (button.classList == 'operand' || button.value == '.')) {
+    if (contor2 <= 6 && phase1 == 3 && (button.classList == 'operand' || button.value == '.')) {
 
       phase2 = 3; //dezactivez operatia
 
@@ -109,6 +109,7 @@ for (const button of buttons) {
         if (button.value >= '1' && button.value <= '9') {
           secondOperator = button.value;
           display.innerHTML = primulOperator + operatie + secondOperator;
+          contor2++;
         }
       } else if (button.value == '.') {
           if (!decimal2) {
@@ -119,6 +120,7 @@ for (const button of buttons) {
         } else if (button.value >= '1' && button.value <= '9') {
           secondOperator += button.value;
           display.innerHTML += button.value;
+          contor2++;
         }
       }
   
