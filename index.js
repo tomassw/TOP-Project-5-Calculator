@@ -90,12 +90,38 @@ for (const button of buttons) {
     if ((button.value == '-' || button.value == '+' || button.value == '/' || button.value == '*' || button.value == '%') && phase2 == 1) {
         phase1 = 3;
         operatie = button.value;
-        display.innerHTML += operatie;
-    }
+        display.innerHTML = primulOperator + operatie;
+      }
 
     //Al doilea termen
-   
+    if (phase1 == 3 && (button.classList == 'operand' || button.value == '.')) {
 
+      phase2 = 3; //dezactivez operatia
+
+
+      if (secondOperator == '0') {
+        if (button.value == '0') display.innerHTML = primulOperator + operatie + secondOperator;
+        if (button.value == '.' && !decimal2) {
+          secondOperator += button.value;
+          display.innerHTML += button.value;
+          decimal2 = true;
+        }
+        if (button.value >= '1' && button.value <= '9') {
+          secondOperator = button.value;
+          display.innerHTML = primulOperator + operatie + secondOperator;
+        }
+      } else if (button.value == '.') {
+          if (!decimal2) {
+            secondOperator += button.value;
+            display.innerHTML += button.value;
+            decimal2 = true;
+          }
+        } else if (button.value >= '1' && button.value <= '9') {
+          secondOperator += button.value;
+          display.innerHTML += button.value;
+        }
+      }
+  
     //Egal
     if (button.value == '=') {
       display.innerHTML = eval(primulOperator + operatie + secondOperator);
