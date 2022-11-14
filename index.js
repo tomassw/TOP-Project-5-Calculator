@@ -24,14 +24,6 @@ let decimal1 = false;
 let decimal2 = false;
 
 
-//Keyboard action
-/*
-window.addEventListener('keydown', function(e) {
-  
-}, false);  
-*/
-
-
 
 //Click action
 for (const button of buttons) {
