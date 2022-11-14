@@ -22,13 +22,17 @@ let secondOperator = '0';
 
 let decimal1 = false;
 let decimal2 = false;
+
+
 //Keyboard action
-/*
+
 window.addEventListener('keydown', function(e) {
   display.innerHTML = `You pressed ${e.key}`;
-  if (e.key === '1') e.key.click;
 }, false);  
-*/
+
+
+
+
 //Click action
 for (const button of buttons) {
   button.addEventListener('click', function onClick() {
@@ -155,4 +159,14 @@ for (const button of buttons) {
   }); 
 }
 
+
+
+
+
+
+
+
+
+
+//Light theme
 
