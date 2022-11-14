@@ -191,14 +191,15 @@ theme.addEventListener('click', function e() {
 
     //console.log(document.getElementById("display"))
     theme.classList.value = "themeswitcher2";
-    /*
-    for (const button of buttons) {
+    
+    const buttons2 = document.querySelectorAll("#black");
+    for (const button of buttons2) {
       button.style.backgroundColor= "white";
       button.style.color= "black";
       button.style.border = "2px black solid";
       button.style.fontWeight= "550";
     }
-    */
+    
     
   } else {
     document.querySelector("#display").style.color = "white";
@@ -215,5 +216,13 @@ theme.addEventListener('click', function e() {
 
     //console.log(document.getElementById("display"))
     theme.classList.value = "themeswitcher1";
+
+    const buttons3 = document.querySelectorAll("#black");
+    for (const button of buttons3) {
+      button.style.backgroundColor= "black";
+      button.style.color= "white";
+      button.style.border = "1px white solid";
+      button.style.fontWeight= "200";
+    }
   }
 });
