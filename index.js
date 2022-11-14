@@ -25,11 +25,11 @@ let decimal2 = false;
 
 
 //Keyboard action
-
+/*
 window.addEventListener('keydown', function(e) {
-  display.innerHTML = `You pressed ${e.key}`;
+  
 }, false);  
-
+*/
 
 
 
@@ -129,6 +129,10 @@ for (const button of buttons) {
           secondOperator += button.value;
           display.innerHTML += button.value;
           contor2++;
+        } else if (button.value == '0') {
+          secondOperator += button.value;
+          display.innerHTML += button.value;
+          contor2++;
         }
       }
   
@@ -169,4 +173,47 @@ for (const button of buttons) {
 
 
 //Light theme
+const theme = document.querySelector("#themeswitcher");
 
+theme.addEventListener('click', function e() {
+  if (theme.innerHTML == "Light theme") {
+    document.querySelector("#display").style.color = "black";
+    document.querySelector("#display").style.fontWeight = "400";
+
+    document.querySelector("body").style.backgroundColor = "white";
+    document.querySelector(".title").style.color = "black";
+    document.querySelector(".title").style.fontWeight = "400";
+    document.getElementById("display").style.border = "2px solid black";
+    document.querySelector(".copyright").style.color = "black";
+    document.querySelector(".copyright").style.fontWeight = "500";
+    document.querySelector(".logo").src="img/GitHub-Mark-64px.png";
+    theme.innerHTML = 'Dark theme';
+
+    //console.log(document.getElementById("display"))
+    theme.classList.value = "themeswitcher2";
+    /*
+    for (const button of buttons) {
+      button.style.backgroundColor= "white";
+      button.style.color= "black";
+      button.style.border = "2px black solid";
+      button.style.fontWeight= "550";
+    }
+    */
+    
+  } else {
+    document.querySelector("#display").style.color = "white";
+    document.querySelector("#display").style.fontWeight = "200";
+
+    document.querySelector("body").style.backgroundColor = "black";
+    document.querySelector(".title").style.color = "white";
+    document.querySelector(".title").style.fontWeight = "100";
+    document.getElementById("display").style.border = "1px solid white";
+    document.querySelector(".copyright").style.color = "white";
+    document.querySelector(".copyright").style.fontWeight = "100";
+    document.querySelector(".logo").src="img/GitHub-Mark-Light-64px.png";
+    theme.innerHTML = 'Light theme';
+
+    //console.log(document.getElementById("display"))
+    theme.classList.value = "themeswitcher1";
+  }
+});
