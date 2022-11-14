@@ -54,7 +54,7 @@ main {
     border: 1px white solid;
 }
 
-#zero {
+[value$="0"] {
     grid-column: span 2;
 }
 
@@ -125,11 +125,4 @@ a {
 
 .themeswitcher2:hover {
     border: 1px black dashed;
-}
-
-#white {
-    font-family: 'Quicksand', sans-serif;
-    color: black;
-    background-color: white;
-    border: 1px white solid;
 }
